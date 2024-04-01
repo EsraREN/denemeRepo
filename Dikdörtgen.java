@@ -1,34 +1,53 @@
-/** (1)
- *  (2)Bu sınıf, bir dikdörtgenin alanını ve çevresini hesaplamak için kullanılır.
- (3)*/ 
-public class Dikdortgen {
-    private int uzunluk;
-    private int genislik;
-    
-    /**(4)
-     * Dikdörtgenin alanını hesaplar.(5)
-     * @return Dikdörtgenin alanı(6)
-     (7)*/
-    public int alanHesapla() {
-        return uzunluk * genislik;
-    }
-    
-    /**(8)
-     * Dikdörtgenin çevresini hesaplar.(9)
-     * @return Dikdörtgenin çevresi(10)
-     (11)*/
-    public int cevreHesapla() {
-        return 2 * (uzunluk + genislik);
-    }
+package pkt;
 
-    //bosluk olursa ? 
+import java.util.UUID;
 
-    /**(12)
-     *  (13)
-         yorum satiri(14)
-        assagisi 2 satir bosluk    (15)
+/**
+ * Banka hesabını temsil eden sınıf
+ * @author MFA
+ *
+ */
+public class Hesap implements IHesap {
+	private String no;
+	private double bakiye;
+	
+	public Hesap()
+	{
+		this.no = UUID.randomUUID().toString(); // Rastgele bir Id belirleniyor...
+		// Hesap açılışı bakiye sıfır.
+		bakiye = 0;
+	}
+	
+	@Override
+	public String getNo() {
+		return no;
+	}
 
+	@Override
+	public boolean paraCek(double miktar) {
+		/*
+		 * Ön miktar kontrol ediliyor.
+		 */
+		if(miktar <= 0 || miktar > bakiye) return false;
+		bakiye -= miktar;
+		return true;
+	}
 
-     (18)*/
+	@Override
+	public boolean paraYatir(double miktar) {
+		if(miktar <= 0) return false; // miktar kontrolü
+		bakiye += miktar;
+		return true;
+	}
+
+	@Override
+	public double getBakiye() {
+		return bakiye;
+	}
+	
+	@Override
+	public String toString() {
+		return "Hesap No: " + no + "\nBakiye: " + bakiye;
+	}
 
 }
