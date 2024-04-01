@@ -11,6 +11,7 @@ public class MasterKart implements IKart {
 	/*
 	*//
 	*/
+	//
 	
 	@Override
 	public boolean girisKontrol(String sifre) {
