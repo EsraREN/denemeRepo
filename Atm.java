@@ -1,8 +1,7 @@
 package pkt;
 
 /**
- * 
- * @author MFA
+  * @author MFA
  *
  */
 public class Atm {
