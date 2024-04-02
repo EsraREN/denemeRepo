@@ -8,10 +8,7 @@ public class MasterKart implements IKart {
 		this.hesap = hesap;
 		this.sifre = sifre;
 	}
-	/*
-	*//
-	*/
-	//
+
 	
 	@Override
 	public boolean girisKontrol(String sifre) {
