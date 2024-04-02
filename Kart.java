@@ -5,7 +5,6 @@ package pkt;
  * @author MFA
  *
  */
-// deneme
 public class Kart implements IKart {
 	private Hesap hesap;
 	private String sifre;
